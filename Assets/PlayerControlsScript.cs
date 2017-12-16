@@ -15,6 +15,7 @@ public class PlayerControlsScript : MonoBehaviour
     private bool _jumpOrder;
     private bool _shootOrder;
     private GameObject _barrel;
+    private Animator _playerAnimator;
 
     // Use this for initialization
     void Start()
@@ -23,6 +24,7 @@ public class PlayerControlsScript : MonoBehaviour
         _playerRigidBody = gameObject.GetComponent<Rigidbody2D>();
         _barrel = gameObject.transform.GetChild(0).gameObject;
         _isGrounded = true;
+        _playerAnimator = gameObject.GetComponent<Animator>();
         CurrentWeapon = 0;
     }
 
@@ -34,14 +36,13 @@ public class PlayerControlsScript : MonoBehaviour
             _shootOrder = true;
         if (Input.GetButtonUp("Fire1"))
             _shootOrder = false;
-
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         _playerTransform.Translate(_playerTransform.right * Input.GetAxis("Horizontal") * Speed);
-
         if (_shootOrder)
         {
             Instantiate(Weapons[CurrentWeapon], _barrel.transform.position, _barrel.transform.rotation);
@@ -53,6 +54,25 @@ public class PlayerControlsScript : MonoBehaviour
         }
         if (_playerRigidBody.velocity.y < 0 && !_isGrounded)
             _playerRigidBody.velocity += Vector2.up * Physics.gravity.y * FallForce;
+        SetAnimationState();
+    }
+
+    private void SetAnimationState()
+    {
+        //TODO: Standing shooting animation and barrel reposition + bullet direction when turn around
+
+        if (!_isGrounded && _playerAnimator.GetInteger("State") > 0)
+            _playerAnimator.SetInteger("State", 3);
+        else if (!_isGrounded && _playerAnimator.GetInteger("State") < 0)
+            _playerAnimator.SetInteger("State", -3);
+        else if (Input.GetAxis("Horizontal") > 0)
+            _playerAnimator.SetInteger("State", 2);
+        else if (Input.GetAxis("Horizontal") < 0)
+            _playerAnimator.SetInteger("State", -2);
+        else if (Input.GetAxis("Horizontal") == 0 && _playerAnimator.GetInteger("State") > 0)
+            _playerAnimator.SetInteger("State", 1);
+        else if (Input.GetAxis("Horizontal") == 0 && _playerAnimator.GetInteger("State") < 0)
+            _playerAnimator.SetInteger("State", -1);
     }
 
     private void OnTriggerExit2D(Collider2D collider)

@@ -38,4 +38,11 @@ public class EnemyHealthScript : MonoBehaviour
         _hit = true;
         _timeUnhit = 0;
     }
+
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (!collider.gameObject.tag.Equals("Player")) return;
+        collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(MaxHealth);
+        Destroy(gameObject);
+    }
 }

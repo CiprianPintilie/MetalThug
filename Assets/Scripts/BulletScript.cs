@@ -34,12 +34,12 @@ public class BulletScript : MonoBehaviour
             || collider.tag.Equals("EnemyBullet") && gameObject.tag.Equals("PlayerBullet")) return;
         if (collider.tag.Equals("Player") && gameObject.tag.Equals("EnemyBullet"))
         {
-            var playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerHealthScript>();
+            var playerScript = collider.gameObject.GetComponent<PlayerHealthScript>();
             playerScript.TakeDamage(Damage);
         }
         if (collider.tag.Equals("Enemy") && gameObject.tag.Equals("PlayerBullet"))
         {
-            var enemyScript = GameObject.FindWithTag("Enemy").GetComponent<EnemyHealthScript>();
+            var enemyScript = collider.gameObject.GetComponent<EnemyHealthScript>();
             enemyScript.TakeDamage(Damage);
         }
         Destroy(gameObject);

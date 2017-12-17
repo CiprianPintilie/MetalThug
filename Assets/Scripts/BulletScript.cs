@@ -31,7 +31,8 @@ public class BulletScript : MonoBehaviour
         if (collider.tag.Equals("Player") && gameObject.tag.Equals("PlayerBullet")
             || collider.tag.Equals("Enemy") && gameObject.tag.Equals("EnemyBullet")
             || collider.tag.Equals("PlayerBullet") && gameObject.tag.Equals("EnemyBullet")
-            || collider.tag.Equals("EnemyBullet") && gameObject.tag.Equals("PlayerBullet")) return;
+            || collider.tag.Equals("EnemyBullet") && gameObject.tag.Equals("PlayerBullet")
+            || collider.tag.Equals("MainCamera")) return;
         if (collider.tag.Equals("Player") && gameObject.tag.Equals("EnemyBullet"))
         {
             var playerScript = collider.gameObject.GetComponent<PlayerHealthScript>();

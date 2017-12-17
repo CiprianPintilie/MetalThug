@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 10
   CurrentHealth: 0
+  Points: 200
 --- !u!212 &212017580285596442
 SpriteRenderer:
   m_ObjectHideFlags: 1

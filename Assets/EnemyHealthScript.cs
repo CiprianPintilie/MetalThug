@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
 
     public float MaxHealth;
     public float CurrentHealth;
+    public int Points;
 
     private bool _hit;
     private float _timeUnhit;
     private Renderer _enemyRenderer;
+    private GameObject _score;
 
     // Use this for initialization
     void Start()
     {
         CurrentHealth = MaxHealth;
         _enemyRenderer = gameObject.GetComponent<Renderer>();
+        _score = GameObject.Find("Canvas").transform.GetChild(2).gameObject;
     }
 
     // Update is called once per frame
@@ -28,13 +32,16 @@ public class EnemyHealthScript : MonoBehaviour
         }
 
         if (CurrentHealth <= 0)
+        {
+            _score.GetComponent<Text>().text = int.Parse(_score.GetComponent<Text>().text) + Points + "";
             Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
-        _enemyRenderer.material.color = Color.yellow;
+        _enemyRenderer.material.color = Color.red;
         _hit = true;
         _timeUnhit = 0;
     }

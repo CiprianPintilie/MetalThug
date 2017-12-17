@@ -21,8 +21,17 @@ public class BulletScript : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		_bulletTransform.Translate(_bulletTransform.right * BulletSpeed * Direction * Time.deltaTime);
-
 	    if (!_bulletRenderer.isVisible)
-	        Destroy(gameObject, 0.5f);
+	        Destroy(gameObject, 2f);
 	}
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag.Equals("Player"))
+        {
+            var playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerHealthScript>();
+            playerScript.CurrentHealth -= Damage;
+        }
+        Destroy(gameObject);
+    }
 }

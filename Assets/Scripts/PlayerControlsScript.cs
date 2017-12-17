@@ -2,7 +2,6 @@
 
 public class PlayerControlsScript : MonoBehaviour
 {
-
     public float Speed;
     public float JumpForce;
     public float FallForce;
@@ -79,8 +78,21 @@ public class PlayerControlsScript : MonoBehaviour
 
     private void SetAnimationState()
     {
+        //Jumping
+        if (!_isGrounded && Input.GetAxis("Horizontal") > 0 || !_isGrounded && _playerAnimator.GetInteger("State") > 0)
+        {
+            if (_barrel.transform.localPosition.x < 0)
+                _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
+            _playerAnimator.SetInteger("State", 3);
+        }
+        else if (!_isGrounded && Input.GetAxis("Horizontal") < 0 || !_isGrounded && _playerAnimator.GetInteger("State") < 0)
+        {
+            if (_barrel.transform.localPosition.x > 0)
+                _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
+            _playerAnimator.SetInteger("State", -3);
+        }
         //Standing shooting
-        if (_shootOrder && _playerAnimator.GetInteger("State") > 0 && Input.GetAxis("Horizontal") == 0)
+        else if (_shootOrder && _playerAnimator.GetInteger("State") > 0 && Input.GetAxis("Horizontal") == 0)
         {
             if (_barrel.transform.localPosition.x < 0)
                 _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
@@ -91,19 +103,6 @@ public class PlayerControlsScript : MonoBehaviour
             if (_barrel.transform.localPosition.x > 0)
                 _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
             _playerAnimator.SetInteger("State", -4);
-        }
-        //Jumping
-        else if (!_isGrounded && _playerAnimator.GetInteger("State") > 0)
-        {
-            if (_barrel.transform.localPosition.x < 0)
-                _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
-            _playerAnimator.SetInteger("State", 3);
-        }
-        else if (!_isGrounded && _playerAnimator.GetInteger("State") < 0)
-        {
-            if (_barrel.transform.localPosition.x > 0)
-                _barrel.transform.localPosition = new Vector3(_barrel.transform.localPosition.x * -1, _barrel.transform.localPosition.y);
-            _playerAnimator.SetInteger("State", -3);
         }
         //Running
         else if (Input.GetAxis("Horizontal") > 0)

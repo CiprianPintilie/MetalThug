@@ -6,6 +6,9 @@ TagManager:
   tags:
   - LifeBarHolder
   - LifeBar
+  - PlayerBullet
+  - EnemyBullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -10,27 +10,37 @@ public class BulletScript : MonoBehaviour
     private Transform _bulletTransform;
     private Renderer _bulletRenderer;
 
-	// Use this for initialization
-	void Start ()
-	{
-	    _bulletTransform = gameObject.transform;
-	    _bulletRenderer = gameObject.GetComponent<Renderer>();
+    // Use this for initialization
+    void Start()
+    {
+        _bulletTransform = gameObject.transform;
+        _bulletRenderer = gameObject.GetComponent<Renderer>();
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		_bulletTransform.Translate(_bulletTransform.right * BulletSpeed * Direction * Time.deltaTime);
-	    if (!_bulletRenderer.isVisible)
-	        Destroy(gameObject, 2f);
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        _bulletTransform.Translate(_bulletTransform.right * BulletSpeed * Direction * Time.deltaTime);
+        if (!_bulletRenderer.isVisible)
+            Destroy(gameObject, 2f);
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag.Equals("Player"))
+        if (collider.tag.Equals("Player") && gameObject.tag.Equals("PlayerBullet")
+            || collider.tag.Equals("Enemy") && gameObject.tag.Equals("EnemyBullet")
+            || collider.tag.Equals("PlayerBullet") && gameObject.tag.Equals("EnemyBullet")
+            || collider.tag.Equals("EnemyBullet") && gameObject.tag.Equals("PlayerBullet")) return;
+        if (collider.tag.Equals("Player") && gameObject.tag.Equals("EnemyBullet"))
         {
             var playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerHealthScript>();
-            playerScript.CurrentHealth -= Damage;
+            playerScript.TakeDamage(Damage);
+        }
+        if (collider.tag.Equals("Enemy") && gameObject.tag.Equals("PlayerBullet"))
+        {
+            var enemyScript = GameObject.FindWithTag("Enemy").GetComponent<EnemyHealthScript>();
+            enemyScript.TakeDamage(Damage);
         }
         Destroy(gameObject);
     }

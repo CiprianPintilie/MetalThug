@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class LifeBarScript : MonoBehaviour {
+public class LifeBarScript : MonoBehaviour
+{
 
     public void SetLife(float rapport)
     {

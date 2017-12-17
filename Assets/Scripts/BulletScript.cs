@@ -4,6 +4,7 @@ public class BulletScript : MonoBehaviour
 {
     public float Speed;
     public float Damage;
+    public int Direction;
 
     private Transform _bulletTransform;
 
@@ -15,6 +16,6 @@ public class BulletScript : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		_bulletTransform.Translate(_bulletTransform.right * Speed * Time.deltaTime);
+		_bulletTransform.Translate(_bulletTransform.right * Speed * Direction * Time.deltaTime);
 	}
 }

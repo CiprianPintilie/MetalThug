@@ -53,7 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b83a35b84aba84484a8516df4101ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 20
+  BulletSpeed: 20
+  AttackSpeed: 0.25
   Damage: 0
   Direction: 0
 --- !u!135 &135545671795142404

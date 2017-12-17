@@ -2,7 +2,8 @@
 
 public class BulletScript : MonoBehaviour
 {
-    public float Speed;
+    public float BulletSpeed;
+    public float AttackSpeed;
     public float Damage;
     public int Direction;
 
@@ -19,7 +20,7 @@ public class BulletScript : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		_bulletTransform.Translate(_bulletTransform.right * Speed * Direction * Time.deltaTime);
+		_bulletTransform.Translate(_bulletTransform.right * BulletSpeed * Direction * Time.deltaTime);
 
 	    if (!_bulletRenderer.isVisible)
 	        Destroy(gameObject, 0.5f);

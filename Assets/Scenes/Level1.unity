@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.2
-  JumpForce: 6
+  JumpForce: 10
   FallForce: 0.15
   Weapons:
   - {fileID: 1485675328845092, guid: e2a11690948f51848b05e9b1c2955b5d, type: 2}

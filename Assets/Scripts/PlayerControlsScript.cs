@@ -8,8 +8,8 @@ public class PlayerControlsScript : MonoBehaviour
     public float FallForce;
     public GameObject[] Weapons;
     public int CurrentWeapon;
-    public float AttackSpeed;
 
+    private float _attackSpeed;
     private float _attackTimer;
     private Transform _playerTransform;
     private Rigidbody2D _playerRigidBody;
@@ -28,6 +28,7 @@ public class PlayerControlsScript : MonoBehaviour
         _isGrounded = true;
         _playerAnimator = gameObject.GetComponent<Animator>();
         CurrentWeapon = 0;
+        ChangeAttackSpeed();
     }
 
     void Update()
@@ -45,7 +46,7 @@ public class PlayerControlsScript : MonoBehaviour
     void FixedUpdate()
     {
         _playerTransform.Translate(_playerTransform.right * Input.GetAxis("Horizontal") * Speed);
-        if (_shootOrder && _attackTimer >= AttackSpeed)
+        if (_shootOrder && _attackTimer >= _attackSpeed)
         {
             var direction = GetDirection();
             var bullet = Instantiate(Weapons[CurrentWeapon], _barrel.transform.position, _barrel.transform.rotation);
@@ -62,6 +63,11 @@ public class PlayerControlsScript : MonoBehaviour
         if (_playerRigidBody.velocity.y < 0 && !_isGrounded)
             _playerRigidBody.velocity += Vector2.up * Physics.gravity.y * FallForce;
         SetAnimationState();
+    }
+
+    private void ChangeAttackSpeed()
+    {
+        _attackSpeed = Weapons[CurrentWeapon].GetComponent<BulletScript>().AttackSpeed;
     }
 
     private int GetDirection()

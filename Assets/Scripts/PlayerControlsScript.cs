@@ -8,7 +8,9 @@ public class PlayerControlsScript : MonoBehaviour
     public float FallForce;
     public GameObject[] Weapons;
     public int CurrentWeapon;
+    public float AttackSpeed;
 
+    private float _attackTimer;
     private Transform _playerTransform;
     private Rigidbody2D _playerRigidBody;
     private bool _isGrounded;
@@ -16,10 +18,10 @@ public class PlayerControlsScript : MonoBehaviour
     private bool _shootOrder;
     private GameObject _barrel;
     private Animator _playerAnimator;
-
     // Use this for initialization
     void Start()
     {
+        _attackTimer = 0;
         _playerTransform = gameObject.transform;
         _playerRigidBody = gameObject.GetComponent<Rigidbody2D>();
         _barrel = gameObject.transform.GetChild(0).gameObject;
@@ -36,20 +38,21 @@ public class PlayerControlsScript : MonoBehaviour
             _shootOrder = true;
         if (Input.GetButtonUp("Fire1"))
             _shootOrder = false;
-
+        _attackTimer += Time.deltaTime;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         _playerTransform.Translate(_playerTransform.right * Input.GetAxis("Horizontal") * Speed);
-        if (_shootOrder)
+        if (_shootOrder && _attackTimer >= AttackSpeed)
         {
             var direction = GetDirection();
             var bullet = Instantiate(Weapons[CurrentWeapon], _barrel.transform.position, _barrel.transform.rotation);
             if (direction < 0)
                 bullet.transform.Rotate(0, 0, 180);
             bullet.GetComponent<BulletScript>().Direction = direction;
+            _attackTimer = 0;
         }
         if (_jumpOrder)
         {

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4308110946140738}
   - component: {fileID: 212702419861511116}
   - component: {fileID: 114281025724228908}
+  - component: {fileID: 135545671795142404}
   m_Layer: 0
   m_Name: Bullet_0
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485675328845092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4222512, y: 0.28761727, z: 0.052246094}
+  m_LocalPosition: {x: -1.2956742, y: -2.811542, z: 0.052246094}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,6 +56,18 @@ MonoBehaviour:
   Speed: 20
   Damage: 0
   Direction: 0
+--- !u!135 &135545671795142404
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1485675328845092}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.07
+  m_Center: {x: 0, y: -0, z: 0}
 --- !u!212 &212702419861511116
 SpriteRenderer:
   m_ObjectHideFlags: 1

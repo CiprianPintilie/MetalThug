@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthScript : MonoBehaviour
 {
@@ -32,7 +33,13 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         if (CurrentHealth <= 0)
+        {
+            var canvasTransform = GameObject.Find("Canvas").transform;
+            var gameOverPanel = canvasTransform.GetChild(4).gameObject;
+            gameOverPanel.SetActive(true);
+            gameOverPanel.transform.GetChild(2).GetComponent<Text>().text = canvasTransform.GetChild(2).gameObject.GetComponent<Text>().text;
             Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)

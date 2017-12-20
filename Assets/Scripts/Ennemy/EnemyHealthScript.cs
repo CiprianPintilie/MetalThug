@@ -7,6 +7,7 @@ public class EnemyHealthScript : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
     public int Points;
+    public GameObject Explosion;
 
     private bool _hit;
     private float _timeUnhit;
@@ -34,6 +35,7 @@ public class EnemyHealthScript : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             _score.GetComponent<Text>().text = int.Parse(_score.GetComponent<Text>().text) + Points + "";
+            Instantiate(Explosion, gameObject.transform.position, transform.rotation = Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -51,6 +53,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (!collider.gameObject.tag.Equals("Player")) return;
         collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(MaxHealth);
+        Instantiate(Explosion, gameObject.transform.position, transform.rotation = Quaternion.identity);
         Destroy(gameObject);
         gameObject.GetComponent<AudioSource>().Play();
     }

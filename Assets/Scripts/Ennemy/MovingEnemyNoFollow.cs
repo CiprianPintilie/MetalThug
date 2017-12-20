@@ -100,6 +100,15 @@ public class MovingEnemyNoFollow : MonoBehaviour {
                 DirectionY *= -1;
             }
         }
+
+        if(DirectionX < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false; 
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

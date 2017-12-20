@@ -49,4 +49,14 @@ public class PlayerHealthScript : MonoBehaviour
         _hit = true;
         _timeUnhit = 0;
     }
+
+    public void gainHealth(float health)
+    {
+        if (CurrentHealth + health < MaxHealth)
+            CurrentHealth += health;
+        else
+            CurrentHealth = MaxHealth;
+
+        _playerRenderer.material.color = Color.white;
+    }
 }

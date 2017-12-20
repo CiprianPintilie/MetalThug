@@ -44,6 +44,7 @@ public class EnemyHealthScript : MonoBehaviour
         _enemyRenderer.material.color = Color.red;
         _hit = true;
         _timeUnhit = 0;
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     void OnCollisionEnter2D(Collision2D collider)
@@ -51,5 +52,6 @@ public class EnemyHealthScript : MonoBehaviour
         if (!collider.gameObject.tag.Equals("Player")) return;
         collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(MaxHealth);
         Destroy(gameObject);
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }

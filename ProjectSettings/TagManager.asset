@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Bonus_health
   - Bonus_weapon
+  - Bonus_score
   layers:
   - Default
   - TransparentFX

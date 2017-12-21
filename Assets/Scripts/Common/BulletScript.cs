@@ -24,7 +24,7 @@ public class BulletScript : MonoBehaviour
     {
         _bulletTransform.Translate(_bulletTransform.right * BulletSpeed * Direction * Time.deltaTime);
         if (!_bulletRenderer.isVisible)
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1f);
     }
 
     void OnTriggerEnter2D(Collider2D collider)

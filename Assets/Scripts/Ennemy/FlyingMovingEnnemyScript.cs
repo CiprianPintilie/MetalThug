@@ -10,6 +10,7 @@ public class FlyingMovingEnnemyScript : MonoBehaviour {
     public bool CanGoVertical;
     public float RangeMove;
 
+    private Renderer _enemyRenderer;
     private int _directionX;
     private int _directionY;
     private Vector2 _iniTposition;
@@ -21,6 +22,9 @@ public class FlyingMovingEnnemyScript : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
+        _enemyRenderer = gameObject.GetComponent<Renderer>();
+
         _directionX = -1;
         _directionY = -1;
 
@@ -37,6 +41,7 @@ public class FlyingMovingEnnemyScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (!_enemyRenderer.isVisible) return;
         SetDirection();
         Move();
     }

@@ -14,6 +14,7 @@ public class EnemyHealthScript : MonoBehaviour
     private float _timeUnhit;
     private Renderer _enemyRenderer;
     private GameObject _score;
+    private Transform _playerTransform;
 
     // Use this for initialization
     void Start()
@@ -21,11 +22,15 @@ public class EnemyHealthScript : MonoBehaviour
         CurrentHealth = MaxHealth;
         _enemyRenderer = gameObject.GetComponent<Renderer>();
         _score = GameObject.Find("Canvas").transform.GetChild(2).gameObject;
+        _playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_enemyRenderer.isVisible && transform.position.x + 20 < _playerTransform.position.x)
+            Destroy(gameObject, 1);
+
         _timeUnhit += Time.deltaTime;
         if (_hit && _timeUnhit >= 0.15)
         {

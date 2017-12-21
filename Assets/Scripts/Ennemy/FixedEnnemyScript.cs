@@ -9,6 +9,7 @@ public class FixedEnnemyScript : MonoBehaviour
     private float _attackSpeed;
     private float _attackTimer;
     private GameObject _barrel;
+    private Renderer _enemyRenderer;
 
     // Use this for initialization
     void Start()
@@ -16,11 +17,13 @@ public class FixedEnnemyScript : MonoBehaviour
         _attackSpeed = Weapon.GetComponent<BulletScript>().AttackSpeed;
         _attackTimer = 0;
         _barrel = gameObject.transform.GetChild(0).gameObject;
+        _enemyRenderer = gameObject.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!_enemyRenderer.isVisible) return;
         _attackTimer += Time.deltaTime;
         if (_attackTimer >= _attackSpeed)
         {

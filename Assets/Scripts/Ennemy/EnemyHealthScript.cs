@@ -53,6 +53,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        gameObject.GetComponent<AudioSource>().Play();
         CurrentHealth -= damage;
         _enemyRenderer.material.color = Color.red;
         _hit = true;

@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropRate: 60
   HealthAmount: 0
-  ScorePoints: 50
+  ScorePoints: 250
 --- !u!212 &212858445983736068
 SpriteRenderer:
   m_ObjectHideFlags: 1

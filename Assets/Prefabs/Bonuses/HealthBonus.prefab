@@ -206,9 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3937f3b1ea6f3be4b849343be9aa0584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropRate: 8
-  HealthAmount: 100
-  ScorePoints: 200
+  DropRate: 12
+  HealthAmount: 50
+  ScorePoints: 1500
 --- !u!212 &212025375619062690
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 30
   CurrentHealth: 0
-  Points: 400
+  Points: 1000
   DropBonuses:
   - {fileID: 1602707544131356, guid: 0367fbf5531cea549b8f7e3897f160bf, type: 2}
   - {fileID: 1608931186630960, guid: 07282595d8da4d242a43b5e30560e746, type: 2}

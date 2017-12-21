@@ -15,7 +15,7 @@ public class BulletScript : MonoBehaviour
     {
         _bulletTransform = gameObject.transform;
         _bulletRenderer = gameObject.GetComponent<Renderer>();
-
+        gameObject.GetComponent<AudioSource>().Play();
     }
 
     // Update is called once per frame

@@ -45,7 +45,10 @@ public class ItemScript : MonoBehaviour
             }
             //Prevent collider to trigger twice sometimes since player have two colliders
             _triggered = true;
-            Destroy(gameObject);
+            gameObject.GetComponent<AudioSource>().Play();
+            gameObject.GetComponent<Renderer>().enabled = false;
+            transform.position = new Vector3(-100, -100);
+            Destroy(gameObject, 2);
         }
     }
 

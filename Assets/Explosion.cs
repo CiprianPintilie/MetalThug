@@ -11,6 +11,6 @@ public class Explosion : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, 1f);
     }
 }

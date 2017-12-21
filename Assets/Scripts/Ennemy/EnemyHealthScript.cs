@@ -8,6 +8,7 @@ public class EnemyHealthScript : MonoBehaviour
     public float CurrentHealth;
     public int Points;
     public GameObject[] DropBonuses;
+    public GameObject DeathExplosion;
 
     private bool _hit;
     private float _timeUnhit;
@@ -48,6 +49,7 @@ public class EnemyHealthScript : MonoBehaviour
             if (bonusDropRate >= randomValue)
                 Instantiate(DropBonuses[i], gameObject.transform.position, gameObject.transform.rotation);
         }
+        Instantiate(DeathExplosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

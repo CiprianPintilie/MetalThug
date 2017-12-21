@@ -101,7 +101,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3d408b9d856227a418075ded8ce232b6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -216,6 +216,8 @@ MonoBehaviour:
   CurrentHealth: 0
   Points: 100
   DropBonuses: []
+  DeathExplosion: {fileID: 1413794098943134, guid: 169c2fd8fb698bd458d9a88e90307aa3,
+    type: 2}
 --- !u!212 &212113605727918312
 SpriteRenderer:
   m_ObjectHideFlags: 1

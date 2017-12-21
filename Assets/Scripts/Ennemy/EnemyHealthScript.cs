@@ -66,6 +66,7 @@ public class EnemyHealthScript : MonoBehaviour
     {
         if (!collider.gameObject.tag.Equals("Player")) return;
         collider.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(MaxHealth);
+        Instantiate(DeathExplosion, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

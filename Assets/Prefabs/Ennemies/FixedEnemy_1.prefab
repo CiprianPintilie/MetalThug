@@ -193,9 +193,7 @@ MonoBehaviour:
   MaxHealth: 20
   CurrentHealth: 0
   Points: 400
-  DropBonuses:
-  - {fileID: 1602707544131356, guid: 0367fbf5531cea549b8f7e3897f160bf, type: 2}
-  - {fileID: 1133974771488178, guid: c27b10461c702d0489e1eea53780da52, type: 2}
+  DropBonuses: []
   DeathExplosion: {fileID: 1413794098943134, guid: 169c2fd8fb698bd458d9a88e90307aa3,
     type: 2}
 --- !u!114 &114937335776219604

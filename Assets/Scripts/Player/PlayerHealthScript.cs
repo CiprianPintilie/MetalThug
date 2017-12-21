@@ -7,6 +7,7 @@ public class PlayerHealthScript : MonoBehaviour
     public float MaxHealth;
     public float CurrentHealth;
     public GameObject LifeBar;
+    public GameObject DeathExplosion;
 
     private bool _hit;
     private float _timeUnhit;
@@ -38,6 +39,7 @@ public class PlayerHealthScript : MonoBehaviour
             var gameOverPanel = canvasTransform.GetChild(4).gameObject;
             gameOverPanel.SetActive(true);
             gameOverPanel.transform.GetChild(2).GetComponent<Text>().text = canvasTransform.GetChild(2).gameObject.GetComponent<Text>().text;
+            Instantiate(DeathExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

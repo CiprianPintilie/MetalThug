@@ -33,7 +33,7 @@ public class EnemyHealthScript : MonoBehaviour
             _hit = false;
         }
 
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 || transform.position.y < -20)
             Die();
     }
 

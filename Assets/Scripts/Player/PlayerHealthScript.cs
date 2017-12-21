@@ -32,7 +32,7 @@ public class PlayerHealthScript : MonoBehaviour
             _hit = false;
         }
 
-        if (CurrentHealth <= 0)
+        if (CurrentHealth <= 0 || transform.position.y < -20)
         {
             var canvasTransform = GameObject.Find("Canvas").transform;
             var gameOverPanel = canvasTransform.GetChild(4).gameObject;

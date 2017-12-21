@@ -22,11 +22,10 @@ GameObject:
   - component: {fileID: 212113605727918312}
   - component: {fileID: 95162449818650898}
   - component: {fileID: 61264759765722022}
-  - component: {fileID: 114674705107956422}
   - component: {fileID: 114709031435233876}
   - component: {fileID: 50986895414957264}
   - component: {fileID: 82160792513467664}
-  - component: {fileID: 114096732272883064}
+  - component: {fileID: 114041167050878578}
   m_Layer: 0
   m_Name: MovingEnemy_0
   m_TagString: Enemy
@@ -41,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1965225641482396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.9, y: -3.64, z: 1}
+  m_LocalPosition: {x: 49.949, y: -3.769406, z: 1}
   m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -189,19 +188,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114096732272883064
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1965225641482396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2479c3a72ba02144eb425935edbe4976, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScriptsToActivate: []
---- !u!114 &114674705107956422
+--- !u!114 &114041167050878578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -228,7 +215,9 @@ MonoBehaviour:
   MaxHealth: 20
   CurrentHealth: 0
   Points: 100
-  DropBonuses: []
+  DropBonuses:
+  - {fileID: 1602707544131356, guid: 0367fbf5531cea549b8f7e3897f160bf, type: 2}
+  - {fileID: 1133974771488178, guid: c27b10461c702d0489e1eea53780da52, type: 2}
   DeathExplosion: {fileID: 1413794098943134, guid: 169c2fd8fb698bd458d9a88e90307aa3,
     type: 2}
 --- !u!212 &212113605727918312

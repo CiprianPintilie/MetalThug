@@ -171,9 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpeed: 10
-  AttackSpeed: 0.8
+  AttackSpeed: 1.5
   Damage: 20
   Direction: 0
+  Explosion: {fileID: 0}
 --- !u!212 &212142808885898998
 SpriteRenderer:
   m_ObjectHideFlags: 1

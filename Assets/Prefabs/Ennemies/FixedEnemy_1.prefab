@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999406177069680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.06, y: -3.07, z: 1}
+  m_LocalPosition: {x: 44.88389, y: 3.9112592, z: 1}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4664112981860726}
@@ -193,7 +193,9 @@ MonoBehaviour:
   MaxHealth: 20
   CurrentHealth: 0
   Points: 400
-  DropBonuses: []
+  DropBonuses:
+  - {fileID: 1602707544131356, guid: 0367fbf5531cea549b8f7e3897f160bf, type: 2}
+  - {fileID: 1133974771488178, guid: c27b10461c702d0489e1eea53780da52, type: 2}
   DeathExplosion: {fileID: 1413794098943134, guid: 169c2fd8fb698bd458d9a88e90307aa3,
     type: 2}
 --- !u!114 &114937335776219604

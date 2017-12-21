@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MainCameraScript : MonoBehaviour
 {
@@ -16,7 +14,9 @@ public class MainCameraScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+	    if (_playerTransform == null) return;
 	    if (transform.localPosition.x < _playerTransform.position.x && Input.GetAxis("Horizontal") > 0)
 	        transform.Translate(transform.right * Time.deltaTime * CameraSpeed);
 	}

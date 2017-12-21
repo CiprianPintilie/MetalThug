@@ -17,6 +17,7 @@ public class PlayerControlsScript : MonoBehaviour
     private bool _shootOrder;
     private GameObject _barrel;
     private Animator _playerAnimator;
+
     // Use this for initialization
     void Start()
     {
@@ -62,6 +63,12 @@ public class PlayerControlsScript : MonoBehaviour
         if (_playerRigidBody.velocity.y < 0 && !_isGrounded)
             _playerRigidBody.velocity += Vector2.up * Physics.gravity.y * FallForce;
         SetAnimationState();
+    }
+
+    public void ChangeWeapon(int weaponIndex)
+    {
+        CurrentWeapon = weaponIndex;
+        ChangeAttackSpeed();
     }
 
     private void ChangeAttackSpeed()

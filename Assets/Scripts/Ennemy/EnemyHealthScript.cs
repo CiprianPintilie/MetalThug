@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
-
     public float MaxHealth;
     public float CurrentHealth;
     public int Points;

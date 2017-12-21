@@ -9,6 +9,8 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Enemy
+  - Bonus_health
+  - Bonus_weapon
   layers:
   - Default
   - TransparentFX

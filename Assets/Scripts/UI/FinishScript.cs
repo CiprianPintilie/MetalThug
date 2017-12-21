@@ -24,7 +24,8 @@ public class FinishScript : MonoBehaviour
             var canvasTransform = GameObject.Find("Canvas").transform;
             var winPanel = canvasTransform.GetChild(5).gameObject;
             winPanel.transform.GetChild(2).GetComponent<Text>().text = canvasTransform.GetChild(2).gameObject.GetComponent<Text>().text;
-            collider.enabled = false;
+            winPanel.SetActive(true);
+            collider.gameObject.SetActive(false);
         }
     }
 }

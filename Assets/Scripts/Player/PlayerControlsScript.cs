@@ -144,6 +144,12 @@ public class PlayerControlsScript : MonoBehaviour
         _isGrounded = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag.Equals("Platform"))
+            _isGrounded = true;
+    }
+
     private void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.tag.Equals("Platform"))

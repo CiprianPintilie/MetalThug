@@ -39,7 +39,6 @@ public class FlyingMovingEnnemyScript : MonoBehaviour {
     {
         SetDirection();
         Move();
-        Debug.Log(gameObject.transform.position);
     }
 
     IEnumerator RandomMovement()

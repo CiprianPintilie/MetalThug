@@ -46,7 +46,12 @@ public class PlayerHealthScript : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        gameObject.GetComponent<AudioSource>().Play();
+        if (CurrentHealth - damage >= 0)
+            CurrentHealth -= damage;
+        else
+            CurrentHealth = 0;
+        
         _playerRenderer.material.color = Color.clear;
         _hit = true;
         _timeUnhit = 0;

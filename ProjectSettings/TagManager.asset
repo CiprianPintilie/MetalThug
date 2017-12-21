@@ -13,6 +13,7 @@ TagManager:
   - Bonus_weapon
   - Bonus_score
   - Platform
+  - Trap
   layers:
   - Default
   - TransparentFX

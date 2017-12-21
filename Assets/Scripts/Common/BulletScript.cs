@@ -6,6 +6,7 @@ public class BulletScript : MonoBehaviour
     public float AttackSpeed;
     public float Damage;
     public int Direction;
+    public GameObject Explosion;
 
     private Transform _bulletTransform;
     private Renderer _bulletRenderer;
@@ -45,5 +46,13 @@ public class BulletScript : MonoBehaviour
         }
         if (!collider.tag.StartsWith("Bonus"))
             Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        if (Explosion != null)
+        {
+            Instantiate(Explosion, gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 }

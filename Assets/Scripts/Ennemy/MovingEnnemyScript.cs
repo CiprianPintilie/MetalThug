@@ -22,15 +22,15 @@ public class MovingEnnemyScript : MonoBehaviour
 	{
 	    SetDirection();
 	    _enemyAnimator.SetInteger("State", Direction);
-	    if (_objectToFollow.transform.localPosition.y < _enemyTransform.position.y + 2)
+	    if (_objectToFollow != null && _objectToFollow.transform.localPosition.y < _enemyTransform.position.y + 2)
             _enemyTransform.Translate(_enemyTransform.right * Speed * Direction * Time.deltaTime);
     }
 
     private void SetDirection()
     {
-        if (_objectToFollow.transform.localPosition.x > _enemyTransform.position.x)
+        if (_objectToFollow != null && _objectToFollow.transform.localPosition.x > _enemyTransform.position.x)
             Direction = 1;
-        else if (_objectToFollow.transform.localPosition.y > _enemyTransform.position.y + 2)
+        else if (_objectToFollow != null && _objectToFollow.transform.localPosition.y > _enemyTransform.position.y + 2)
             Direction = 0;
         else
             Direction = -1;

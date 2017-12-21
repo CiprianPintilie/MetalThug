@@ -43,6 +43,7 @@ public class BulletScript : MonoBehaviour
             var enemyScript = collider.gameObject.GetComponent<EnemyHealthScript>();
             enemyScript.TakeDamage(Damage);
         }
-        Destroy(gameObject);
+        if (!collider.tag.StartsWith("Bonus"))
+            Destroy(gameObject);
     }
 }

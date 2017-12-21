@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class EnemyHealthScript : MonoBehaviour
 {
     public float MaxHealth;
     public float CurrentHealth;
     public int Points;
+    public GameObject[] DropBonuses;
 
     private bool _hit;
     private float _timeUnhit;
@@ -31,10 +33,22 @@ public class EnemyHealthScript : MonoBehaviour
         }
 
         if (CurrentHealth <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        _score.GetComponent<Text>().text = int.Parse(_score.GetComponent<Text>().text) + Points + "";
+        for (int i = 0; i < DropBonuses.Length; i++)
         {
-            _score.GetComponent<Text>().text = int.Parse(_score.GetComponent<Text>().text) + Points + "";
-            Destroy(gameObject);
+            //Allways initialise a new one because of randomness problems
+            var rnd = new Random();
+            var bonusDropRate = DropBonuses[i].GetComponent<ItemScript>().DropRate;
+            var randomValue = rnd.Next(0, 100);
+            if (bonusDropRate >= randomValue)
+                Instantiate(DropBonuses[i], gameObject.transform.position, gameObject.transform.rotation);
         }
+        Destroy(gameObject);
     }
 
     public void TakeDamage(float damage)

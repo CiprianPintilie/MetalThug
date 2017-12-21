@@ -78,8 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3937f3b1ea6f3be4b849343be9aa0584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropRate: 0
-  WeaponIndex: 0
+  DropRate: 12
   HealthAmount: 100
   ScorePoints: 200
 --- !u!212 &212025375619062690

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletSpeed: 15
   AttackSpeed: 1
-  Damage: 100
+  Damage: 1
   Direction: 0
 --- !u!212 &212325541574792684
 SpriteRenderer:

@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class ItemScript : MonoBehaviour
 {
     public float DropRate;
-    public int WeaponIndex;
     public float HealthAmount;
     public float ScorePoints;
 
@@ -36,7 +35,8 @@ public class ItemScript : MonoBehaviour
                         _playerHealthScript.CurrentHealth += HealthAmount;
                     break;
                 case "Bonus_weapon":
-                    _playerControlsScript.ChangeWeapon(WeaponIndex);
+                    if (_playerControlsScript.CurrentWeapon + 1 < _playerControlsScript.Weapons.Length)
+                        _playerControlsScript.ChangeWeapon(_playerControlsScript.CurrentWeapon + 1);
                     AddScore();
                     break;
                 case "Bonus_score":
@@ -48,15 +48,6 @@ public class ItemScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //void OnTriggerExit2D(Collider2D collider)
-    //{
-        
-    //    if (collider.tag.Equals("Player"))
-    //    {
-    //        _triggered = true;
-    //    }
-    //}
 
     private void AddScore()
     {

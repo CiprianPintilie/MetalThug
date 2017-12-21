@@ -12,6 +12,7 @@ TagManager:
   - Bonus_health
   - Bonus_weapon
   - Bonus_score
+  - Platform
   layers:
   - Default
   - TransparentFX

@@ -141,19 +141,12 @@ public class PlayerControlsScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        //if (!collider.tag.Equals("Spawn1") && !collider.tag.Equals("Spawn2"))
         _isGrounded = false;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collider)
-    //{
-    //    //if (!collider.tag.Equals("Spawn1") && !collider.tag.Equals("Spawn2"))
-    //    _isGrounded = true;
-    //}
-
     private void OnTriggerStay2D(Collider2D collider)
     {
-        //if (!collider.tag.Equals("Spawn1") && !collider.tag.Equals("Spawn2"))
-        _isGrounded = true;
+        if (collider.tag.Equals("Platform"))
+            _isGrounded = true;
     }
 }

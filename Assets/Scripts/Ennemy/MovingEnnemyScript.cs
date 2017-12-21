@@ -25,7 +25,7 @@ public class MovingEnnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (!_enemyRenderer.isVisible && transform.position.x > _playerTransform.position.x) return;
+	    if (_playerTransform != null && !_enemyRenderer.isVisible && transform.position.x > _playerTransform.position.x) return;
         SetDirection();
 	    _enemyAnimator.SetInteger("State", Direction);
 	    if (_objectToFollow != null && _objectToFollow.transform.localPosition.y < _enemyTransform.position.y + 2)

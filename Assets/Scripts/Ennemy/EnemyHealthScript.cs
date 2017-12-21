@@ -28,7 +28,7 @@ public class EnemyHealthScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_enemyRenderer.isVisible && transform.position.x + 20 < _playerTransform.position.x)
+        if (_playerTransform != null && !_enemyRenderer.isVisible && transform.position.x + 20 < _playerTransform.position.x)
             Destroy(gameObject, 1);
 
         _timeUnhit += Time.deltaTime;
